@@ -1,0 +1,14 @@
+{
+  "user": "teo",
+  "password": "Soft26$07",
+  "server": "serve-db-productos.database.windows.net",
+  "database": "API_PRODUCTO",
+  "pool": {
+    "max": 10,
+    "min": 0,
+    "idleTimeoutMillis": 30000
+  },
+  "options": {
+    "encrypt": true
+  }
+}
