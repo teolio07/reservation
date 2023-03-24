@@ -1,4 +1,4 @@
-class Booking {
+export class Booking {
     public id_booking:string = "";
     public id_doc_RH:string = ""; // RH = Reservation holder
     public id_service:string = "";

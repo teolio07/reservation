@@ -1,0 +1,70 @@
+create database DB_BOOKING;
+
+use DB_BOOKING;
+
+create table ReservationHolder(
+	Id_doc_RH varchar(30) primary key unique,
+	Name varchar(30),
+	Lastname varchar(30),
+	Email varchar(30),
+	Password varchar(30),
+	Phone varchar(30)
+)
+
+create table ServicesProvider(
+	Id_doc_SP varchar(30) primary key unique,
+	Name varchar(30),
+	Lastname varchar(30),
+	Email varchar(30),
+	Password varchar(30),
+	Phone varchar(30)
+)
+
+create table ServiceToReservation(
+	Id_service varchar(30) primary key unique,
+	Title varchar(30) ,
+	Description varchar(30),
+	Image varchar(30),
+	Status boolean,
+	Id_doc_SP
+
+)
+
+create table Booking(
+	Id_booking varchar(30) primaky key unique,
+	Date_start date,
+	Time_start time,
+	Date_end date,
+	Time_end time,
+	Status boolean,
+	Id_service varchar(30),
+	Id_doc_RH varchar(30)
+)
+
+//---------------Titular reserva------------------//
+//--------todos
+CREATE VIEW viewReservationHolders
+AS
+SELECT Id_doc_RH, Name, Lastname ,Email , Phone
+FROM ReservationHolder;
+
+create procedure  sp_list_ReservationHolders
+as
+begin
+SELECT * from viewReservationHolders
+end
+
+//------------Solo uno
+
+CREATE VIEW viewReservationHolder
+AS
+SELECT Id_doc_RH, Name, Lastname ,Email , Password, Phone
+FROM ReservationHolder;
+
+create procedure sp_ReservationHolder
+@id_doc_RH varchar(30)
+AS
+begin
+SELECT * from viewReservationHolder where viewReservationHolder.Id_doc_RH = @id_doc_RH varchar
+end
+
